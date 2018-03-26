@@ -9,17 +9,16 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent {
   title = 'app';
+  scheduleItems :any;
   fortuneUrl = 'http://localhost:8080/schedule';
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    console.log("HELLO GOKS");
-
+    
     this.http.get(this.fortuneUrl).
       subscribe(data => {  
-        this.title = data['content']
+        this.scheduleItems = data['schedule']
     });
-  
   }
 
 }
